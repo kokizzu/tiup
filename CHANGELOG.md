@@ -1,5 +1,67 @@
 TiUP Changelog
 
+## [1.16.5] 2026-04-10
+
+### New Features
+
+- `tiup-playground-ng` Initial commit: new playground experience with interactive TUI, boot plan, and dry-run support (#2662, @breezewish)
+- `tiup-playground-ng` support daemon mode with `ps`/`stop-all` commands and event-log progress replay (#2671, @breezewish)
+- `tiup-playground-ng` support parallel download for components (#2676, @breezewish)
+- `tiup-cluster` support deploying resource manager service (#2659, @okJiang)
+- `tiup-cluster` support router service mcs (#2636, @bufferflies)
+- `tiup-cluster` support retention by size for prometheus (#2612, @AstroProfundis)
+- `tiup-cluster` support ng-monitoring config via server_configs and per-instance overrides (#2685, @boltandrke)
+- `tiup-cluster` support RHEL9 (#2699, @xhebox)
+- `tiup-playground` support router and resource manager services (#2600, @rleungx)
+- `tiup-playground` support tidb-x (next generation mode) (#2619, #2608, #2641, @xhebox)
+- `tiup` add option to force redownload binaries (#2648, @xhebox)
+
+### Improvements
+
+- `tiup-cluster` unify default tiflash logger size/count with documentation (#2683, @fzzf678)
+- `tiup-cluster` use full env only when `TIUP_CLUSTER_DEBUG` is true (#2637, @mzhang77)
+- `tiup-cluster` replace `TextToMetricFamilies` with regexp (#2695, @xhebox)
+- `tiup-cluster` check both SELinux status and config (#2496, @dveeden)
+- `tiup-cluster` persistent disable THP (#2498, @dveeden)
+- `tiup-playground` wait PD ready before starting TiDB to avoid cluster ID mismatch (#2679, @amyangfei)
+- `tiup-playground-ng` fix arg0 and polish help rendering (#2673, @breezewish)
+- `tiup-playground` refine nextgen version resolve (#2640, #2621, #2622, @xhebox)
+- `tiup-playground`, `tiup-cluster` respect HOME env variable (#2628, @dveeden)
+- `tiup-cluster` cleanup ansible import related things (#2630, @dveeden)
+- `tiup` cleanup unit test generated data (#2647, @AstroProfundis)
+- `tiup-playground` don't request mirror when binpath specified (#2645, @xhebox)
+- `tiup-playground` better help message (#2664, @JaySon-Huang)
+- `tiup` upgrade usql (#2595, @dveeden)
+
+### Fixes
+
+- `tiup-playground-ng` fix force kill (#2674, @breezewish)
+- `tiup-playground-ng` fix release (#2667, @xhebox)
+- `tiup` disable ANSI escape sequences when stdout is not a TTY (#2701, @xhebox)
+- `tiup` fix recording of execution history with sensitive info redaction (#2635, @dveeden)
+- `tiup` fix yaml.v3 float serialization to preserve decimal point (#2687, @WizardWuuu)
+- `tiup-playground` fix metafile location (#2638, @dveeden)
+- `tiup-playground` fix monitor version for nextgen (#2622, @xhebox)
+- `tiup-playground` fix config in CSE/NextGen modes (#2666, @Lloyd-Pottiger)
+- `tiup-playground` fix tiflash start with old mode unexpectedly (#2670, @JaySon-Huang)
+- `tiup` fix no need mirror be set --version and --help (#2658, @u5surf)
+- `tiup-cluster` return the error message correctly (#2652, @xhebox)
+- `tiup-cluster` fix instance level timeout stop (#2644, @xhebox)
+- `tiup-cluster` fix panic with restore-leaders (#2697, @sgykfjsm)
+- `tiup-cluster` treat version as string instead of float when compare (#2656, @ghoshh)
+- `tiup-playground` fix nextgen install (#2649, @Lloyd-Pottiger)
+
+### Miscellaneous
+
+- Update dependencies (#2688, @dveeden)
+- Update golang.org/x/net (#2631, @dveeden)
+- Run go fix (#2689, @dveeden)
+- CI: update versions and rely on go.mod (#2690, @dveeden)
+- CI: update and fix integrate-dm (#2643, @dveeden)
+- CI: try fix release CD (#2700, @xhebox)
+- Switch to codecov-action (#2639, @dveeden)
+- Remove ansible import functionality (#2565, @dveeden)
+
 ## [1.16.4] 2025-10-28
 
 ### Fixes
@@ -34,7 +96,7 @@ TiUP Changelog
 ### Improvements
 
 - `tiup-playground` added `--perf` for high performance testing usage, for tiflash only (#2535, @breezewish)
-- `tiup-clusterr` added example for tiflash and tiflash-proxy config for minimal.yaml and multi-dc.yaml (#2551, @JaySon-Huang)
+- `tiup-cluster` added example for tiflash and tiflash-proxy config for minimal.yaml and multi-dc.yaml (#2551, @JaySon-Huang)
 - Lots of code cleanup work (#2525, #2518, #2547, #2549, #2540, #2552, #2560, #2557, #2559, #2555, #2556, #2561, #2562, #2564, #2542, #2553, #2566, #2569, #2571, #2576, #2579, #2582, #2577, #2570, #2558, @dveeden, @xhebox, @wuhuizuo, @Lloyd-Pottiger)
 
 ## [1.16.2] 2025-04-02
